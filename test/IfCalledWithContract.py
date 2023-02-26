@@ -4,12 +4,8 @@ from Shall import Shall
 from shall.IfCalledWith import IfCalledWith
 from shall.ShallEntity import ShallEntity, P, R
 
-
 def checker(returnValue:Any, self:ShallEntity[P,R], otherparam: int, foo: str) -> bool:
-    print("---")
-    print(self.parameters)
     expected = ((1,), {'foo': 'bar'})
-    print(expected)
     return self.parameters == expected
 
 class IfCalledWithContract:

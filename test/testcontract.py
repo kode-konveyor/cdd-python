@@ -1,5 +1,6 @@
 import sys
 from unittest import TestCase
+from CheckContract import CheckContract
 
 from ExampleContract import ExampleContract
 from ThenreturnContract import ThenreturnContract
@@ -38,4 +39,8 @@ class testContract(TestCase):
 
     def test_thenreturn(self) -> None:
         for rule in ThenreturnContract.rules:
+            rule.check()
+ 
+    def test_check(self) -> None:
+        for rule in CheckContract.rules:
             rule.check()
