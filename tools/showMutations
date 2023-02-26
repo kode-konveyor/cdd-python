@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e ".mode box \n select m.id,m.status,f.filename,l.line_number,l.line from Mutant m, Line l, SourceFile f where m.line=l.id and l.sourcefile=f.id;" |sqlite3 .mutmut-cache

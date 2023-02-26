@@ -14,7 +14,7 @@ class ExampleContract:
                 "The return value is twice the input",
                 lambda returnValue, self, value: returnValue == 2 * value)
          # mypy does not think that "ExampleChecker" is a SideEffectChecker[[ExampleService, int], int]
-         .meanWhile("Prints the result", ExampleChecker())  # type: ignore
+         .meanWhile("Prints the result", ExampleChecker()) #type:ignore
 
          )
     ]

@@ -3,7 +3,7 @@ import sys
 from typing import Callable
 from unittest.mock import MagicMock
 from ExampleService import ExampleService
-from SideEffectChecker import SideEffectChecker
+from shall.SideEffectChecker import SideEffectChecker
 
 
 class ExampleChecker(SideEffectChecker[[ExampleService, int], int]):
