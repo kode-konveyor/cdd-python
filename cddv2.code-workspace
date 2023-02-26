@@ -28,6 +28,7 @@
 				"name": "django",
 				"depth": 2
 			}
-		]
+		],
+		"python.linting.enabled": true
 	}
 }

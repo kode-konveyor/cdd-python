@@ -2,7 +2,7 @@
 from typing import Callable, Concatenate, Generic, ParamSpec, Self, TypeVar
 
 from shall.SideEffectChecker import SideEffectChecker
-from shall.ShallEntity import ShallEntity
+from shall.ShallEntity import ShallEntity, P, R
 from shall.When import When
 from shall.IfCalledWith import IfCalledWith
 from shall.ThenReturn import ThenReturn
@@ -10,9 +10,6 @@ from shall.SuchThat import SuchThat
 from shall.MeanWhile import MeanWhile
 from shall.Check import Check
 from shall.ShallConstructor import ShallConstructor
-
-P = ParamSpec("P")
-R = TypeVar("R")
 
 
 class Shall(
