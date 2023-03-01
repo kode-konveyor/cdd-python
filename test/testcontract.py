@@ -1,7 +1,7 @@
 import sys
 from unittest import TestCase
 from CheckContract import CheckContract
-
+from injector import Inject
 from ExampleContract import ExampleContract
 from ThenreturnContract import ThenreturnContract
 from WhenContract import WhenContract
@@ -9,7 +9,9 @@ from ShallConstructorContract import ShallConstructorContract
 from IfCalledWithContract import IfCalledWithContract
 from MeanWhileContract import MeanWhileContract
 from SuchThatContract import SuchThatContract
+from src.shall.Check import CheckReturnValue
 
+inject = Inject([CheckReturnValue])
 
 class testContract(TestCase):
 

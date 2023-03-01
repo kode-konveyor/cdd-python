@@ -1,29 +1,26 @@
 
 from shall.ShallEntity import ShallEntity, P, R
+from injector import inject
+from src.shall.CheckReturnConstraints import CheckReturnConstraints
+from src.shall.CheckReturnValue import CheckReturnValue
+from src.shall.CheckSideEffects import CheckSideEffects
 
-class Check(ShallEntity[P, R]):
+class Check():
+    @inject
+    def __init__(self,
+                 checkReturnValue:CheckReturnValue[P,R],
+                 checkReturnConstraints: CheckReturnConstraints[P,R],
+                 checkSideEffects: CheckSideEffects[P,R]
+                 ) -> None:
+        self.checkReturnValue = checkReturnValue
+        self.checkReturnConstraints = checkReturnConstraints
+        self.checkSideEffects = checkSideEffects
+
     def check(self) -> None:
         paramlist = self.parameters[0]
         paramkwargs = self.parameters[1]
         print(self.explanation)
         callResult = self.callable(*paramlist, **paramkwargs)
-        if self.returnValue == callResult:
-            print("/return value PASSED")
-        else:
-            raise AssertionError(self.explanation +
-                                 " did return " + str(callResult) + " instead of " + str(self.returnValue))
-        for (explanation, checker) in self.returnConstraints:
-            checked = checker(self.returnValue, *paramlist, **paramkwargs)
-            if checked:
-                print("+"+explanation+": PASSED")
-            else:
-                raise AssertionError(explanation+" did not hold")
-        for (explanation, sideEffectChecker) in self.sideEffectCheckers:
-            sideEffectChecker.setUp(self.callable, *paramlist, **paramkwargs)
-            result = sideEffectChecker.runTest()
-            sideEffectChecker.tearDown()
-            if result:
-                print("-"+explanation+": PASSED")
-            else:
-                raise AssertionError(
-                    explanation+" did not hold: " + str(result))
+        self.checkReturnValue.checkReturnValue(callResult)
+        self.checkReturnConstraints.checkReturnConstraints( paramlist, paramkwargs)
+        self.checkSideEffects.checkSideEffects(paramlist,paramkwargs)
