@@ -1,10 +1,5 @@
-from typing import TypeVar, ParamSpec, Self
 
-from shall.ShallEntity import ShallEntity
-
-P = ParamSpec("P")
-R = TypeVar("R")
-
+from shall.ShallEntity import ShallEntity, P, R
 
 class Check(ShallEntity[P, R]):
     def check(self) -> None:

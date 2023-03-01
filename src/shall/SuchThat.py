@@ -1,4 +1,5 @@
-from typing import TypeVar, ParamSpec, Self, Callable, Concatenate
+from typing import Callable
+from typing_extensions import Self, Concatenate
 
 from shall.ShallEntity import ShallEntity, P, R
 

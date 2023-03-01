@@ -1,4 +1,4 @@
-from typing import TypeVar, ParamSpec, Self, Callable
+from typing import  Callable
 
 from shall.ShallEntity import ShallEntity, P, R
 

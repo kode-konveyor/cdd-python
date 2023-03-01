@@ -1,4 +1,4 @@
-from typing import TypeVar, ParamSpec, Self
+from typing_extensions import  Self
 
 from shall.ShallEntity import ShallEntity, P, R
 from shall.SideEffectChecker import SideEffectChecker

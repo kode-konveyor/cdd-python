@@ -1,8 +1,7 @@
 
-from typing import Callable, Concatenate, Generic, ParamSpec, Self, TypeVar
+from typing import Callable, Generic
 
-from shall.SideEffectChecker import SideEffectChecker
-from shall.ShallEntity import ShallEntity, P, R
+from shall.ShallEntity import P, R
 from shall.When import When
 from shall.IfCalledWith import IfCalledWith
 from shall.ThenReturn import ThenReturn

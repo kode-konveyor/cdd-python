@@ -11,11 +11,11 @@ def realChecker(returnValue:str, self:SuchThat[[int],int], explanation: str, che
 
 
 class SuchThatContract:
-    selfMock = Mock()
+    selfMock:SuchThat[[int],str] = Mock()
     selfMock.returnConstraints = []
     rules = [(
         Shall("Registers side effects", SuchThat[[int],str].suchThat)
-        .ifCalledWith(selfMock, "explanation", checkerTestArtifact) #type:ignore
+        .ifCalledWith(selfMock, "explanation", checkerTestArtifact) #type:ignore #https://github.com/python/mypy/issues/14806
         .thenReturn(selfMock)
-        .suchThat("Registers the side effect check and explanation", realChecker) #type:ignore
+        .suchThat("Registers the side effect check and explanation", realChecker) #type:ignore #https://github.com/python/mypy/issues/14806
     )]
